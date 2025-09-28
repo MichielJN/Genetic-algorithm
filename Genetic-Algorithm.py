@@ -102,10 +102,13 @@ def CreatePopulation(jobs, populationAmount, amountOfJobsPerCombination):
 
 def Crossover(parent1, parent2, amountOfJobsPerComnbination):
     """
-    This crossover takes the middle part of parent1 and then wraps unused parts of
-    parent 2 in order around it (So if every part of parent 2 can be used it means that
-    if index 2-6 is used of parent 1 it will put index 7, 8 and 9 of parent 2 at  the end and 1 at the beginning).
-    if parent2 doesn't have enough unused elements it will add unused elements of parent1 to the end of unused elements.
+    This crossover takes the middle part of parent1 and then puts unused
+    parts of parent 2 around it, starting with parent 2 from cutoff point 2
+    at the end of the middle and continous until cutoff point 1. If parent 2
+    doesn't have enough unused elements it will continue with unused elements of
+    parent 1. So the position of items of parent 2 will change but their order will
+    not change. the order and position of the middle part are the same both in parent 1
+    and in the child.
     """
 
     parent1 = list(parent1)
@@ -211,6 +214,3 @@ def Rotate(left, collection, steps):
 # print(CalculateProfit([(165, 3, 58), (12, 2, 81), (163, 7, 31), (45, 8, 40), (42, 3, 94), (129, 1, 9),(146, 7, 39), (81, 2, 60), (199, 9, 85), (193, 8, 59)], 10))
 assert(CalculateProfit([(165, 3, 58), (12, 2, 81), (163, 7, 31), (45, 8, 40), (42, 3, 94), (129, 1, 9), (146, 7, 39), (81, 2, 60), (199, 9, 85), (193, 8, 59)], 10)) == 334
 print(GeneticAlgorithm("example_problems.xlsx", "p4", 1000, 10, 49999, 6, False, False, True))
-
-        
-
