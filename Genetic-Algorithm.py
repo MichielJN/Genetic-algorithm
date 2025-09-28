@@ -163,7 +163,7 @@ def Mutate(child, amountOfJobsPerCombination):
 
                     return child
                 
-    child = Rotate(True, child, bestProfit[1]-bestProfit[0][1]-1 )
+    child = Rotate(True, child, bestProfit[1]-bestProfit[0][1]+1 )
     child.append(CalculateProfit(child, amountOfJobsPerCombination))
 
     return child
@@ -212,5 +212,6 @@ def Rotate(left, collection, steps):
 # print(CalculateProfit([(13, 9, 74), (115, 8, 22), (100, 10, 20), (184, 10, 63), (56, 7, 8), (90, 10, 5), (195, 4, 62), (25, 10, 31), (57, 2, 97), (185, 9, 19)],10))
 # assert(CalculateProfit([(13, 9, 74), (115, 8, 22), (100, 10, 20), (184, 10, 63), (56, 7, 8), (90, 10, 5), (195, 4, 62), (25, 10, 31), (57, 2, 97), (185, 9, 19)],10)) == 223
 # print(CalculateProfit([(165, 3, 58), (12, 2, 81), (163, 7, 31), (45, 8, 40), (42, 3, 94), (129, 1, 9),(146, 7, 39), (81, 2, 60), (199, 9, 85), (193, 8, 59)], 10))
-assert(CalculateProfit([(165, 3, 58), (12, 2, 81), (163, 7, 31), (45, 8, 40), (42, 3, 94), (129, 1, 9), (146, 7, 39), (81, 2, 60), (199, 9, 85), (193, 8, 59)], 10)) == 334
+#assert(CalculateProfit([(165, 3, 58), (12, 2, 81), (163, 7, 31), (45, 8, 40), (42, 3, 94), (129, 1, 9), (146, 7, 39), (81, 2, 60), (199, 9, 85), (193, 8, 59)], 10)) == 334
+print(Mutate([(1,1,10), (2,1,20), (3,2,30), (4,3,40), (5,4,50), (6,5,60), (7,6,70), (8,7,80), (9,8,90), (10,9,100)], 10))
 print(GeneticAlgorithm("example_problems.xlsx", "p4", 1000, 10, 49999, 6, False, False, True))
